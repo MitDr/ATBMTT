@@ -20,9 +20,7 @@ public class vigenereRepeatedKey implements ClassicEncryption {
     }
 
     private String generateKey(String str, String key){
-
         int x = str.length();
-
         for (int i = 0; ; i++) {
             if (x == i)
                 i = 0;
