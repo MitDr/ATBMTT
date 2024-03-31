@@ -15,7 +15,7 @@ public class EulerTheorem implements Modulo {
         this.a = a;
         this.m = m;
         this.n = n;
-        eulerValue = new EulerValue(this.n);
+        eulerValue = new EulerValue(this.m);
     }
 
 //    public EulerTheorem(int a,int m,int n) {
@@ -26,22 +26,30 @@ public class EulerTheorem implements Modulo {
 //    }
     @Override
     public int solve() {
-        if(Gcd(a,n) != 1){
-            return -1;
+        if(Gcd(a,m) != 1){
+            int phi = eulerValue.solve();
+            int temp = n % phi;
+            if(temp != 0){
+                eulerValue = new ModuloExponentiation(a,temp,m);
+                int output = eulerValue.solveRecurr(a,temp,m);
+                return output * a;
+            }
+            else return a;
         }
         if(m == 0){
             return -1;
         }
-        int result =1;
-        int base = a % n;
-        while(m>0){
-            if(m % 2 == 1){
-                result = (result * base) % n;
-            }
-            base = (base * base) % n;
-            m = m/2;
+        int phi = eulerValue.solve();
+        int temp = n % phi;
+        System.out.println(temp + " " + n / phi);
+        if(temp != 0){
+            System.out.println(a + " " + temp + " "+ m + " " );
+            eulerValue = new ModuloExponentiation(a,temp,m);
+
+            return eulerValue.solveRecurr(a,temp,m);
+
         }
-        return result;
+        else return 1;
     }
 
     @Override

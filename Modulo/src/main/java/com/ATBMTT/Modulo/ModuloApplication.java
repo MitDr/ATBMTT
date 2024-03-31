@@ -13,14 +13,14 @@ public class ModuloApplication {
 
 	public static void main(String[] args) {
 		SpringApplication app = new SpringApplication(ModuloApplication.class);
-		app.setAdditionalProfiles("chineseRemainderTheorem");
+		app.setAdditionalProfiles("exp");
 		ApplicationContext context = app.run(args);
 
 		ModuloController moduloController = context.getBean(ModuloController.class);
 
-		System.out.println(moduloController.solve());
+		//System.out.println(moduloController.solve());
 		//Exponentitaiion
-		//System.out.println(moduloController.solveRecurr(499,6337, 6337));
+		//System.out.println(moduloController.solveRecurr(29,72, 348));
 	}
 
 }
