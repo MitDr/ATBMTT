@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ModuloController {
-    @Autowired()
+    @Autowired
     Modulo modulo;
 
     public ModuloController(Modulo modulo) {

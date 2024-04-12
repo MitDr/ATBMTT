@@ -8,14 +8,15 @@ import org.springframework.stereotype.Component;
 @Profile("euler")
 public class EulerValue implements Modulo {
     int n;
-    public EulerValue(@Value("${n}") int n) {
-        this.n = n;
-    }
-//    public EulerValue(int n) {
+//    public EulerValue(@Value("${n}") int n) {
 //        this.n = n;
 //    }
+    public EulerValue(int n) {
+        this.n = n;
+    }
     @Override
     public int solve() {
+        System.out.println(n);
         int count = 0;
         for (int i = 1; i <= n; i++) {
             if (areCoprime(n, i)) {

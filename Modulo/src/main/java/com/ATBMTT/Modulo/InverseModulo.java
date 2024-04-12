@@ -16,8 +16,8 @@ public class InverseModulo implements Modulo {
     public InverseModulo(int a, int n) {
         this.a = a;
         this.n = n;
-
     }
+
     @Override
 
     public int solve() {

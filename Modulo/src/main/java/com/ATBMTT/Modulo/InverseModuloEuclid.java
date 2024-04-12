@@ -23,7 +23,6 @@ public class InverseModuloEuclid implements Modulo{
         while (b2 > 1) {
 
             int q = a2/ b2;
-            System.out.println("this is for debug " + q +" " + a1 + " " + a2 + " " + b1 + " " + b2);
 
             int tmp1,tmp2;
             tmp1 = a1;

@@ -11,27 +11,28 @@ import org.springframework.stereotype.Component;
 public class EulerTheorem implements Modulo {
     Modulo eulerValue;
     int a,m,n;
-    public EulerTheorem(@Value("${a}") int a, @Value("${m}") int m, @Value("${n}") int n) {
-        this.a = a;
-        this.m = m;
-        this.n = n;
-        eulerValue = new EulerValue(this.m);
-    }
-
-//    public EulerTheorem(int a,int m,int n) {
+//    public EulerTheorem(@Value("${a}") int a, @Value("${m}") int m, @Value("${n}") int n) {
 //        this.a = a;
 //        this.m = m;
 //        this.n = n;
 //        eulerValue = new EulerValue(this.n);
 //    }
+
+    public EulerTheorem(int a,int m,int n) {
+        this.a = a;
+        this.m = m;
+        this.n = n;
+        eulerValue = new EulerValue(this.n);
+    }
     @Override
     public int solve() {
         if(Gcd(a,m) != 1){
+            eulerValue = new EulerValue(m);
             int phi = eulerValue.solve();
-            int temp = n % phi;
+            int temp = m % phi;
             if(temp != 0){
-                eulerValue = new ModuloExponentiation(a,temp,m);
-                int output = eulerValue.solveRecurr(a,temp,m);
+                eulerValue = new ModuloExponentiation(a,temp,n);
+                int output = eulerValue.solveRecurr(a,temp,n);
                 return output * a;
             }
             else return a;
@@ -40,13 +41,11 @@ public class EulerTheorem implements Modulo {
             return -1;
         }
         int phi = eulerValue.solve();
-        int temp = n % phi;
-        System.out.println(temp + " " + n / phi);
+        int temp = m % phi;
         if(temp != 0){
-            System.out.println(a + " " + temp + " "+ m + " " );
-            eulerValue = new ModuloExponentiation(a,temp,m);
+            eulerValue = new ModuloExponentiation(a,temp,n);
 
-            return eulerValue.solveRecurr(a,temp,m);
+            return eulerValue.solveRecurr(a,temp,n);
 
         }
         else return 1;

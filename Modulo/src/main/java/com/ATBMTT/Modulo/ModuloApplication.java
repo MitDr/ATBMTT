@@ -13,14 +13,14 @@ public class ModuloApplication {
 
 	public static void main(String[] args) {
 		SpringApplication app = new SpringApplication(ModuloApplication.class);
-		app.setAdditionalProfiles("exp");
+		app.setAdditionalProfiles("B10");
 		ApplicationContext context = app.run(args);
 
 		ModuloController moduloController = context.getBean(ModuloController.class);
 
-		//System.out.println(moduloController.solve());
+		System.out.println(moduloController.solve());
 		//Exponentitaiion
-		//System.out.println(moduloController.solveRecurr(29,72, 348));
+		//System.out.println(moduloController.solveRecurr(419,6217, 6217));
 	}
 
 }

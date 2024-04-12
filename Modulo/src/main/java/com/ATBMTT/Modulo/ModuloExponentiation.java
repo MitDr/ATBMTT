@@ -13,16 +13,19 @@ import org.springframework.stereotype.Component;
 public class ModuloExponentiation implements Modulo{
     int a,m,n;
 
-    public ModuloExponentiation(@Value("${a}") int a, @Value("${m}") int m, @Value("${n}") int n) {
-        this.a = a;
-        this.m = m;
-        this.n = n;
-    }
-//    public ModuloExponentiation(int a, int m, int n) {
+//    public ModuloExponentiation(@Value("${a}") int a, @Value("${m}") int m, @Value("${n}") int n) {
 //        this.a = a;
 //        this.m = m;
 //        this.n = n;
 //    }
+    public ModuloExponentiation(int a, int m, int n) {
+        this.a = a;
+        this.m = m;
+        this.n = n;
+    }
+    public ModuloExponentiation(){
+
+    }
 
     @Override
     public int solve() {
